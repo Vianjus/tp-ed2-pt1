@@ -6,5 +6,7 @@
 */
 int calculaItensPorPagina(int);
 
+//void pesquisaIndexada();
+
 #endif
 

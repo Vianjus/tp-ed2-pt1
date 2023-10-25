@@ -6,8 +6,6 @@
 #define TAM_TITULO 5001
 #define MAX_TABELA 100      // Numero arbitrario
 
-int long ITENS_POR_PAGINA;
-
 typedef struct {
     int indices[MAX_TABELA];
     int qtde_indices;

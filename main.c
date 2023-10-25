@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "implementacao/utilitarios.h"
+#include "implementacao/sequencial.h"
 
 int main(int argc, char* argv[])
 {
@@ -38,7 +39,8 @@ int main(int argc, char* argv[])
     switch(entrada.metodo)
     {
         // Acesso Sequencial Indexado
-        // case 1:
+        case 1:
+            //pesquisaIndexada(entrada.chave_buscada, arq_bin);
         
         // break;
 

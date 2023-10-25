@@ -6,6 +6,11 @@
 #include "sequencial.h"
 #include "utilitarios.h"
 
+/*pesquisaIndexada()
+{
+
+}*/
+
 Registro *alocarPagina(int qtde_registros_arquivo)
 {
     Registro *registros = (Registro *) malloc(qtde_registros_arquivo * sizeof(Registro));
@@ -15,7 +20,7 @@ Registro *alocarPagina(int qtde_registros_arquivo)
 
 int calculaItensPorPagina(int qtde_registros_arquivo)
 {
-    return (qtde_registros_arquivo / MAXTABELA) + 1;
+    return (qtde_registros_arquivo / MAX_TABELA) + 1;
 }
 
 void mergesort(int* v, int l, int r){
@@ -23,7 +28,7 @@ void mergesort(int* v, int l, int r){
         int m = (l + r)/2;
         mergesort(v,l,m);
         mergesort(v, m+1, r);
-        merge(v,l,m,r);
+        //merge(v,l,m,r);
     }
 }
 
@@ -38,7 +43,7 @@ int sequencial(Registro tab[], int qtde_registros_arquivo, Entrada *item, FILE *
 
 
     i = 0;
-    while (i < qtde_registros_arquivo && tab[i].chave <= item->chave)
+    while (i < qtde_registros_arquivo && tab[i].chave <= item->chave_buscada)
         i++;
 
     if (i == 0)
@@ -55,7 +60,7 @@ int sequencial(Registro tab[], int qtde_registros_arquivo, Entrada *item, FILE *
                 quant_itens = ITENSPAGINA;
         }
 
-        desloc = (tab[i-1].dado1-1) * ITENSPAGINA * sizeof(Entrada);
+        desloc = (tab[i-1].chave-1) * ITENSPAGINA * sizeof(Entrada);
         fseek (arq, desloc, SEEK_SET);
         fread (&pagina, sizeof(Entrada), quant_itens, arq);
 
