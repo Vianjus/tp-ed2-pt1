@@ -6,7 +6,7 @@
 */
 int calculaItensPorPagina(int);
 
-//void pesquisaIndexada();
+void pesquisaIndexada(int, FILE*);
 
 #endif
 
