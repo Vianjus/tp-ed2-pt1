@@ -6,10 +6,10 @@
 #include "sequencial.h"
 #include "utilitarios.h"
 
-/*pesquisaIndexada()
+pesquisaIndexada(int *chave; FILE *arq_bin)
 {
-
-}*/
+    printf("\n%d\n"chave);
+}
 
 Registro *alocarPagina(int qtde_registros_arquivo)
 {

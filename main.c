@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
     {
         // Acesso Sequencial Indexado
         case 1:
-            //pesquisaIndexada(entrada.chave_buscada, arq_bin);
+            pesquisaIndexada(entrada.chave_buscada, arq_bin);
         
         // break;
 
