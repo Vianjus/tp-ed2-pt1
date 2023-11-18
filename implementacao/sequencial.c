@@ -6,9 +6,21 @@
 #include "sequencial.h"
 #include "utilitarios.h"
 
-pesquisaIndexada(int *chave; FILE *arq_bin)
+void pesquisaIndexada(int chave, FILE *arq_bin)
 {
-    printf("\n%d\n"chave);
+    FILE *index_bin;
+    if (index_bin = fopen(tabind.bin, "rb") == NULL)
+    {
+        int criaTabelaIndeces(Index *indexes, FILE *arq_bin)
+        FILE *file = fopen(tabind.bin, "wb");
+
+        if (file == NULL)
+        {
+            printf("[-] Erro ao abrir o arquivo\n");
+            return 0;
+        }
+
+    }
 }
 
 Registro *alocarPagina(int qtde_registros_arquivo)
@@ -66,5 +78,38 @@ int sequencial(Registro tab[], int qtde_registros_arquivo, Entrada *item, FILE *
 
 
     }
+}
+
+int criaTabelaIndeces (Index *indexes, FILE *dataFile)
+{
+  FILE *file = fopen(INDEXES_FILE, "wb");
+
+  if (file == NULL)
+  {
+    printf("[-] Erro ao abrir o arquivo\n");
+    return 0;
+  }
+
+  Data item;
+
+  // int count = 0;
+  int pos = 0;
+
+  while (fread(&item, sizeof(Data), 1, dataFile) == 1)
+  {
+    indexes[pos].key = item.key;
+    indexes[pos].pos = pos + 1;
+    fwrite(&indexes[pos], sizeof(Index), 1, file);
+    pos++;
+    fseek(dataFile, sizeof(Data) * (PAGE_ITEMS - 1), SEEK_CUR);
+
+    clear();
+    printf("[+] %d índices criados.\n", pos);
+  }
+
+  printf("[+] Tabela de índices criada com sucesso!\n");
+  fclose(file);
+  rewind(dataFile);
+  return pos;
 }
 #endif
