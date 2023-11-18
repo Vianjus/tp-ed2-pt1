@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
         Bloco de codigo relacionado aa leitura do arquivo.
         Se algum erro ocorrer, o programa eh abortado.
     */
-    {
+    /*{
         char nome_arquivo[100];
 
         printf("Nome do arquivo binario localizado neste diretorio: "); scanf("%[\n]s", nome_arquivo);
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
             printf("\nNao foi possivel abrir o arquivo binario %s informado. Abortando o programa...\n", nome_arquivo);
             return 0;
         }
-    }
+    }*/
 
     switch(entrada.metodo)
     {
@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
         case 1:
             pesquisaIndexada(entrada.chave_buscada, arq_bin);
         
-        // break;
+        break;
 
         // Arvore Binaria de Pesquisa
         // case 2:
