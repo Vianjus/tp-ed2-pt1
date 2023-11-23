@@ -1,6 +1,5 @@
 #include <string.h>
 #include <ctype.h>
-
 #include <stdlib.h>
 
 #include "utilitarios.h"
@@ -47,4 +46,11 @@ bool lerEntrada(Entrada* entrada, int argc, char** argumentos)
         return false;
 
     return true;
+}
+
+void printR(Registro* registro)
+{
+    printf("CHAVE: %d\n", registro->chave);
+    printf("VALOR: %ld\n", registro->valor);
+    printf("STRING: %s", registro->string);
 }
