@@ -1,6 +1,6 @@
 DIR = implementacao
 
-all.o: main.o utilitarios.o
+all.o: main.o utilitarios.o sequencial.o
 	@gcc main.o utilitarios.o sequencial.o -o exe
 	@rm main.o utilitarios.o sequencial.o
 
